@@ -25,6 +25,7 @@ public class BallController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // TODO: Limit the range of possible angles for the ball to start traveling in
         direction = Random.insideUnitCircle.normalized;
 
         radius = GetComponent<CircleCollider2D>().bounds.size.x / 2;
@@ -39,6 +40,7 @@ public class BallController : MonoBehaviour
     {
         if(countdown > 0)
         {
+            //TODO: show countdown in UI
             countdown -= Time.deltaTime;
             return;
         }
@@ -70,6 +72,8 @@ public class BallController : MonoBehaviour
                 gm.ScorePoint(true);
             }
             
+            //TODO: scoring visual effects
+            
             ResetBall();
             return;
         }
@@ -95,6 +99,7 @@ public class BallController : MonoBehaviour
 
     void ResetBall()
     {
+        //TODO: Give the ball a new random angle on reset
         bounceCount = 0;
         transform.position = Vector3.zero;
         countdown = maxCountdown;
