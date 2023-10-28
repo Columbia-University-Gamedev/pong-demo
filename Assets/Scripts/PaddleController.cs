@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class PaddleController : MonoBehaviour
+public class PaddleController : NetworkBehaviour
 {
     public float speed = 5.0f;
     GameManager gm;
@@ -21,6 +22,7 @@ public class PaddleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isLocalPlayer) return;
         if(Input.GetKey(leftKey))
         {
             if(transform.position.x - paddleWidth > -gm.width / 2)
